@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.fizzbuzz;
-
-/**
- *
- * @author isfor
- */
 public class FizzBuzz {
 
     static String x;
     
     public static void main(String[] args) {
-        for (int i = 101; i > 0; i--)
+        for (int i = 100; i > 0; i--)
         {
             x = Integer.toString(i);
             

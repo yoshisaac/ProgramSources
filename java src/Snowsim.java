@@ -1,15 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.snowsim;
 import java.util.*;
 import java.io.*;
 
-/**
- *
- * @author isfor
- */
 public class Snowsim {
 
     public static void main(String[] args) throws IOException, InterruptedException {

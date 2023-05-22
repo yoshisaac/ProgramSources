@@ -9,7 +9,7 @@ class wave
     static int WaveLength, Wavetime;
     static String Character;
 
-	public static void main(String[] args) throws InterruptedException 
+	public static void main(String[] args) throws IOException, InterruptedException 
 	{
             System.out.print("Wave Length: ");
             WaveLength = GetInput.nextInt();
@@ -23,6 +23,8 @@ class wave
 
             System.out.print("Character to print: ");
             Character = GetInput.next();
+
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
             
 		while (true)
