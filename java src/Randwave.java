@@ -3,10 +3,11 @@ import java.util.*;
 
 class Randwave
 {
-    
     static Scanner GetInput = new Scanner(System.in);
     
     static String Character;
+
+	static final char space = ' ';
     
     public static void main(String[] args) throws IOException, InterruptedException
     {
@@ -14,30 +15,35 @@ class Randwave
         Character = GetInput.next();
         
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        
-        while (true)
-	{
-		double WaveLengthOne = (Math.random()*100)%17;
-                int WaveLength = (int) WaveLengthOne;
-                
-		for (int i = 0; i < WaveLength; i++)
-		{
-			spaces(i);
-			System.out.print(Character + '\n');
-			Thread.sleep(45);
-		}
 
-		for (int x = WaveLength; x > 0; x--)
-		{
-			spaces(x);
-			System.out.print(Character + '\n');
-			Thread.sleep(45);
+		double WaveLengthBackDouble;
+		int WaveLengthBack = 0;
+
+		double WaveLengthForwardDouble = (Math.random()*100)%17;
+		int WaveLengthForward = (int) WaveLengthForwardDouble;
+        
+		while (true)
+		{			
+			for (int spaces = WaveLengthBack; spaces < WaveLengthForward; spaces++)
+			{ spaces(spaces, space); System.out.println(Character); Thread.sleep(45); }
+
+			WaveLengthBackDouble = (Math.random()*100)%17;
+			WaveLengthBack = (int) WaveLengthBackDouble;
+			while (WaveLengthBack > WaveLengthForward)
+			{ WaveLengthBackDouble = (Math.random()*100)%17; WaveLengthBack = (int) WaveLengthBackDouble; }
+
+			for (int spaces = WaveLengthForward; spaces > WaveLengthBack; spaces--)
+			{ spaces(spaces, space); System.out.println(Character); Thread.sleep(45); }
+
+			WaveLengthForwardDouble = (Math.random()*100)%17;
+			WaveLengthForward = (int) WaveLengthForwardDouble;
+			while (WaveLengthBack > WaveLengthForward)
+			{ WaveLengthForwardDouble = (Math.random()*100)%17; WaveLengthForward = (int) WaveLengthForwardDouble; } 
 		}
-	}
     }
     
-    public static void spaces(int spaces)
+    public static void spaces(int NumberOfCharacters, char Character)
     {
-        for (int c = 0; c < spaces; c++) { System.out.print(" "); }
+        for (int c = 0; c < NumberOfCharacters; c++) { System.out.print(Character); }
     }
 }
