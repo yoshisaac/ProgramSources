@@ -5,18 +5,18 @@
 
 using namespace std;
 
-void spaces(int spaces)
+void prntSpaces(int NumberOfCharacters, string Character)
 {
-	for (int c = 0; c < spaces; c++) { cout << " "; }
+	for (int c = 0; c < NumberOfCharacters; c++) { cout << Character; } //prints what ever you want the number of times you specify
 }
 
 int main()
 {
 	srand(time(NULL));
+	const string space = " ";
 
-	char Character;
 	cout << "Character to print: ";
-	cin >> Character;
+	char Character = getchar();
 
 	if (cin.fail())
 	{
@@ -26,24 +26,25 @@ int main()
 		main();
 	}
 
+	int WaveLengthBack = 0; //lets start from 0 because why not
+	int WaveLengthForward = rand()%17; // pick a random number
+
 	while (true)
-	{
-		int WaveLength = rand()%17;
+	{	
 
-		for (int i = 0; i < WaveLength; i++)
-		{
-			spaces(i);
-			cout << Character << '\n';
-			Sleep(45);
-		}
+		for (int spaces = WaveLengthBack; spaces < WaveLengthForward; spaces++)
+		{ prntSpaces(spaces, space); cout << Character << '\n'; Sleep(45); }
 
-		for (int x = WaveLength; x > 0; x--)
-		{
-			spaces(x);
-			cout << Character << '\n';
-			Sleep(45);
-		}
+		WaveLengthBack = rand()%17; //pick a new number
+		while (!(WaveLengthBack < WaveLengthForward)) // Check for if the random number we generated is valid for the forloop
+		{ WaveLengthBack = rand()%17; }
+
+		for (int spaces = WaveLengthForward; spaces > WaveLengthBack; spaces--)
+		{ prntSpaces(spaces, space); cout << Character << '\n'; Sleep(45); }
+
+		WaveLengthForward = rand()%17; //pick a new number
+		while (!(WaveLengthBack < WaveLengthForward)) // Check for if the random number we generated is valid for the forloop
+		{ WaveLengthForward = rand()%17; }
 	}
-
 	return 0;
 }
