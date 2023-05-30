@@ -3,16 +3,42 @@
 
 using namespace std;
 
-void spaces(int spaces)
+void prntSpaces(int NumberOfCharacters, char Character)
 {
-	for (int c = 0; c < spaces; c++) { cout << " "; }
+	for (int c = 0; c < NumberOfCharacters; c++) { cout << Character; } //prints what ever you want the number of times you specify
 }
 
 int main()
 {
-	int WaveLength;
-	cout << "Length of Wave: ";
-	cin >> WaveLength;
+	const char space = ' ';
+
+	/* [ Settings ] */
+	int WaveLengthForward;
+	cout << "Length of Wave forward: ";
+	cin >> WaveLengthForward;
+
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(9999999, '\n');
+		system("CLS");
+		main();
+	}
+
+	cout << '\n';
+
+	int WaveLengthBack;
+	cout << "Length of Wave back: ";
+	cin >> WaveLengthBack;
+
+	if (WaveLengthBack > WaveLengthForward)
+	{
+		cout << "\nLength of wave forward has to be larger than the length back\n";
+		system("pause");
+
+		system("CLS");
+		main();
+	}
 
 	if (cin.fail())
 	{
@@ -28,7 +54,7 @@ int main()
 	cout << "Wait per draw in ms: ";
 	cin >> WaitTime;
 
-	if (cin.fail()) 
+	if (cin.fail())
 	{
 		cin.clear();
 		cin.ignore(9999999, '\n');
@@ -42,7 +68,7 @@ int main()
 	cout << "Character to print: ";
 	cin >> Character;
 
-	if (cin.fail()) 
+	if (cin.fail())
 	{
 		cin.clear();
 		cin.ignore(9999999, '\n');
@@ -50,20 +76,20 @@ int main()
 		main();
 	}
 
-	system("CLS");
+	system("CLS"); //Clear screen
 
 	while (true)
 	{
-		for (int i = 0; i < WaveLength; i++)
+		for (int spaces = WaveLengthBack; spaces < WaveLengthForward; spaces++)
 		{
-			spaces(i);
+			prntSpaces(spaces, space);
 			cout << Character << '\n';
 			Sleep(WaitTime);
 		}
 
-		for (int x = WaveLength; x > 0; x--)
+		for (int spaces = WaveLengthForward; spaces > WaveLengthBack; spaces--)
 		{
-			spaces(x);
+			prntSpaces(spaces, space);
 			cout << Character << '\n';
 			Sleep(WaitTime);
 		}
@@ -71,3 +97,4 @@ int main()
 
 	return 0;
 }
+
