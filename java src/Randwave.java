@@ -9,11 +9,11 @@ class Randwave
 
 	static final char space = ' ';
     
-    public static void main(String[] args) throws IOException, InterruptedException
-    {
-        System.out.print("Character to print: ");
-        Character = GetInput.next();
-        
+    public static void main(String[] args) throws IOException, InterruptedException //! i fucking hate java
+    {																				//? i fucking hate java
+        System.out.print("Character to print: ");								   //// i fucking hate java
+        Character = GetInput.next();											  //* i fucking hate java
+																				 // TODO i fucking hate java
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
 		double WaveLengthBackDouble;

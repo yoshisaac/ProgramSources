@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
@@ -19,7 +21,7 @@ int main()
 				cout << "\t";
 			}
 
-			cout << "*\n";
+			cout << "*\n"; Sleep(13);
 
 		}
 
