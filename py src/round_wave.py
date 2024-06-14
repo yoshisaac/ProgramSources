@@ -10,6 +10,3 @@ while True:
     i += 0.1
     
     time.sleep(0.1)
-
-    
-        

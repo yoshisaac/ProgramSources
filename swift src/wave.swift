@@ -1,7 +1,7 @@
 //This is basically a joke.
 //There is a Swift interpreter for windows, and this is for it. 
 
-let waveLength = 15
+let waveLength = 45
 
 func spaces(n: Int) {
     var i = 0
