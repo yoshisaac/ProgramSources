@@ -1,33 +1,22 @@
-//This is basically a joke.
-//There is a Swift interpreter for windows, and this is for it. 
+#!/bin/swift
 
-let waveLength = 45
-
-func spaces(n: Int) {
-    var i = 0
-    while i < n {
+func spaces(_ h: Int) {
+    //if h == 0 {return}
+    for _ in 0...h {
         print(" ", terminator: "")
-        i += 1
     }
-} 
+}
 
-var time: Int
 while true {
-    var x = 0
-    while x < waveLength {
-        spaces(n: x)
-        print("*")
-        x += 1
-        time = 0
-        while time < 999999 {time = time + 1} //This is CPU dependent. 
-    }                                        //It might make the program run slower or faster depending on the hardware.
+    for i in 0...15 {
+        spaces(i)
+        print("*")  
+        try await Task.sleep(for: .milliseconds(100)) 
+    }
 
-    var y = waveLength
-    while y > 0 {
-        spaces(n: y)
-        print("*")
-        y -= 1
-        time = 0
-        while time < 999999 {time = time + 1}
+    for i in 0...15 {
+        spaces(16-i)
+        print("*")  
+        try await Task.sleep(until: .now.advanced(by: .milliseconds(100)))         
     }
 }
