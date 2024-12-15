@@ -1,0 +1,11 @@
+[package]
+name = "white_screen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+term_size = "0.3.2"
+
+[[bin]]
+name = "white_screen"
+path = "white_screen.rs"

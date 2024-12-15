@@ -8,11 +8,11 @@ fn main() {
         println!("");
 	let mut h: i64 = 0;
 	while h < (100_f64 * i.cos().abs()) as i64 {
-	    print!(" ");
+	    print!("#");
 	    h += 1;
 	}
 
-	print!("*");
+	print!("]");
 
 	i += 0.1;
 

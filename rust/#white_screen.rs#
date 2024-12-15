@@ -1,0 +1,21 @@
+use std::time;
+use ;
+
+fn main() {
+    let mut columns_str: String = String::new();
+    let mut columns: i32 = 0;
+    match env::var("COLUMNS") {
+	Ok(val) => {
+	    columns_str = val;
+	    columns = columns_str.parse::<i32>().unwrap();
+	},
+	Err(e) => println!("couldn't interpret {}", e),
+    }
+    
+    loop {
+	for _ in 0..columns {
+	    print!("█");
+	}
+	std::thread::sleep(time::Duration::from_nanos(199000));
+    }
+}
