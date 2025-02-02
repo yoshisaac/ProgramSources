@@ -21,9 +21,10 @@ fn main() {
 	for _x in 0..columns_init {
 	    mono_characters_init += "█";
 	}
+	mono_characters_init += "\n";
     }
 
-    println!("{}", mono_characters_init);
+    print!("{}", mono_characters_init);
     
     loop {
 	let Some((columns, _lines)) = term_size::dimensions() else { todo!() };
